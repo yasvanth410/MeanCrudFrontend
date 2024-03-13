@@ -1,0 +1,55 @@
+h1 {
+    background-color: brown;
+    border-radius: 4px;
+}
+
+.card {
+    margin-left: 50%;
+    border-radius: 10px;
+    border-width: 2px;
+    width: 680px;
+
+    padding: 20px 40px;
+    position: relative;
+    border: none;
+    outline: none;
+    z-index: 1;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    
+}
+
+label {
+    font-weight: bolder;
+}
+
+.form-control {
+    width: 600px;
+    border-width: 2px;
+}
+
+.center-container {
+    display: flex;
+    justify-content: center;
+    /* Center horizontally */
+    align-items: center;
+    /* Center vertically */
+    padding: 10px;
+}
+
+button {
+    width: 100px;
+}
+
+.modal-body {
+    color: green;
+    font-weight: bolder;
+}
+
+// validations
+.special {
+    color: red;
+}
+
+input.ng-touched.ng-invalid {
+    border: 2px solid red;
+}

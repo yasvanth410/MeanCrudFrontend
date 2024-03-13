@@ -1,0 +1,43 @@
+<div class="card m-4 mx-auto">
+    <h1 class="text-center">Update Employee</h1>
+    <form [formGroup]="updateForm">
+
+        <label class="m-2">FullName</label>
+        <input type="text" class="form-control m-2" formControlName="fullName">
+        <div *ngIf="updateForm.controls['fullName']?.['touched'] && updateForm.controls['fullName']?.['errors']"  class="special m-2">
+            <p *ngIf="updateForm.controls['fullName']?.['errors']?.['required']">name is required.</p>
+            <p *ngIf="updateForm.controls['fullName']?.['errors']?.['minlength']">name has minimum 6 characters</p>
+        </div>
+
+        <label class="m-2">Email</label>
+        <input type="email" class="form-control m-2" formControlName="email">
+        <div *ngIf="updateForm.controls['email']?.['touched'] && updateForm.controls['email']?.['errors']" class="special m-2">
+            <p *ngIf="updateForm.controls['email']?.['errors']?.['required']">email is required</p>
+            <p *ngIf="updateForm.controls['email']?.['errors']?.['email']">email should be in correct format ("eg:john@gmail.com")</p>
+        </div>
+
+        <label class="m-2">Role</label>
+        <input type="text" class="form-control m-2" formControlName="role">
+        <p *ngIf="updateForm.controls['role']?.['touched'] && updateForm.controls['role']?.['errors']?.['required']" class="special m-2">role is required</p>
+
+        <label class="m-2">Company Name</label>
+        <input type="text" class="form-control m-2" formControlName="companyName">
+        <p *ngIf="updateForm.controls['companyName']?.['touched'] && updateForm.controls['companyName']?.['errors']?.['required']" class="special m-2">company name is required</p>
+
+        <label class="m-2">Mobile</label>
+        <input type="tel" class="form-control m-2" formControlName="mobile">
+        <div *ngIf="updateForm.controls['mobile']?.['touched'] && updateForm.controls['mobile']?.['errors']" class="special m-2">
+            <p *ngIf="updateForm.controls['mobile']?.['errors']?.['required']">mobile number is required</p>
+            <p *ngIf="updateForm.controls['mobile']?.['errors']?.['invalidNum']">mobile number should start in between 6-9 and contains only numbers</p>
+            <p *ngIf="updateForm.controls['mobile']?.['errors']?.['minlength']">mobile number need 10 digits</p>
+        </div>
+
+        <label class="m-2">Address</label>
+        <input type="text" class="form-control m-2" formControlName="address">
+        <p *ngIf="updateForm.controls['address']?.['touched'] && updateForm.controls['address']?.['errors']?.['required']" class="special m-2">address is require</p>
+
+        <div class="center-container">
+            <button class="btn btn-success" [disabled]="updateForm.invalid" (click)="updateData()">update</button>
+        </div>
+    </form>
+</div>

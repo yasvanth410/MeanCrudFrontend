@@ -1,0 +1,43 @@
+<div class="card m-4 mx-auto">
+    <h1 class="text-center text-primary">Add Employee</h1>
+    <form [formGroup]="addForm">
+
+        <label class="m-2">FullName</label>
+        <input type="text" class="form-control m-2" formControlName="fullName">
+        <div *ngIf="addForm.controls['fullName']?.['touched'] && addForm.controls['fullName']?.['errors']"  class="special m-2">
+            <p *ngIf="addForm.controls['fullName']?.['errors']?.['required']">name is required.</p>
+            <p *ngIf="addForm.controls['fullName']?.['errors']?.['minlength']">name has minimum 6 characters</p>
+        </div>
+
+        <label class="m-2">Email</label>
+        <input type="email" class="form-control m-2" formControlName="email">
+        <div *ngIf="addForm.controls['email']?.['touched'] && addForm.controls['email']?.['errors']" class="special m-2">
+            <p *ngIf="addForm.controls['email']?.['errors']?.['required']">email is required</p>
+            <p *ngIf="addForm.controls['email']?.['errors']?.['email']">email should be in correct format ("eg:john@gmail.com")</p>
+        </div>
+
+        <label class="m-2">Role</label>
+        <input type="text" class="form-control m-2" formControlName="role">
+        <p *ngIf="addForm.controls['role']?.['touched'] && addForm.controls['role']?.['errors']?.['required']" class="special m-2">role is required</p>
+
+        <label class="m-2">Company Name</label>
+        <input type="text" class="form-control m-2" formControlName="companyName">
+        <p *ngIf="addForm.controls['companyName']?.['touched'] && addForm.controls['companyName']?.['errors']?.['required']" class="special m-2">company name is required</p>
+
+        <label class="m-2">Mobile</label>
+        <input type="tel" class="form-control m-2" formControlName="mobile">
+        <div *ngIf="addForm.controls['mobile']?.['touched'] && addForm.controls['mobile']?.['errors']" class="special m-2">
+            <p *ngIf="addForm.controls['mobile']?.['errors']?.['required']">mobile number is required</p>
+            <p *ngIf="addForm.controls['mobile']?.['errors']?.['invalidNum']">mobile number should start in between 6-9 and contains only numbers</p>
+            <p *ngIf="addForm.controls['mobile']?.['errors']?.['minlength']">mobile number need 10 digits</p>
+        </div>
+
+        <label class="m-2">Address</label>
+        <input type="text" class="form-control m-2" formControlName="address">
+        <p *ngIf="addForm.controls['address']?.['touched'] && addForm.controls['address']?.['errors']?.['required']" class="special m-2">address is require</p>
+
+        <div class="center-container">
+            <button class="btn btn-primary" [disabled]="addForm.invalid" (click)="getData()">Add</button>
+        </div>
+    </form>
+</div>

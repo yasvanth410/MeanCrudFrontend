@@ -1,0 +1,46 @@
+<div class="container">
+    <div class="row">
+        <h1 class="text-center">Employee List</h1>
+    </div>
+    <div class="row">
+        <div class="col-10"></div>
+        <div class="col-2">
+            <button class="btn btn-primary" (click)="addEmployee()"><i class="fa-solid fa-plus fa-lg"
+                style="color: #fbfcfe;"></i></button>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="col">
+            <table class="table table-striped table-responsive">
+                <thead>
+                    <tr>
+                        <th>Employee Name</th>
+                        <th>Email</th>
+                        <th>Role</th>
+                        <th>Company Name</th>
+                        <th>Contact No</th>
+                        <th>Address</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let emp of empData">
+                        <td>{{emp.fullName}}</td>
+                        <td>{{emp.email}}</td>
+                        <td>{{emp.role}}</td>
+                        <td>{{emp.companyName}}</td>
+                        <td>{{emp.mobile}}</td>
+                        <td>{{emp.address}}</td>
+                        <td><button class="btn btn-success" (click)="updateData(emp)"><i class="fa-solid fa-pen-to-square fa-lg"
+                                    style="color: #fcfcfc;"></i></button></td>
+                        <td><button class="btn btn-danger" (click)="deleteData(emp._id)"><i class="fa-solid fa-trash fa-lg"
+                                    style="color: #fbfaff;"></i></button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-1"></div>
+    </div>
+</div>
